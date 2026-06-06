@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PU Entry Test Preparation Series — PU Aspirants Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-900: #064e3b;
+    --green-800: #065f46;
+    --green-700: #047857;
+    --green-600: #059669;
+    --green-500: #10b981;
+    --green-400: #34d399;
+    --green-300: #6ee7b7;
+    --green-100: #d1fae5;
+    --green-50:  #ecfdf5;
+    --white: #ffffff;
+    --gray-50:  #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --red-500: #ef4444;
+    --red-100: #fee2e2;
+    --yellow-500: #f59e0b;
+    --yellow-100: #fef3c7;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.05);
+    --shadow-lg: 0 10px 32px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.06);
+    --shadow-xl: 0 20px 48px rgba(0,0,0,.14);
+    --radius: 12px;
+    --radius-lg: 18px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-800);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(6,78,59,.35);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-logo {
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,.15);
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .brand-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(14px, 2.5vw, 19px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.2px;
+  }
+  .brand-text p {
+    font-size: 11px;
+    opacity: .75;
+    font-weight: 400;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  #timer-display {
+    font-family: 'DM Mono', monospace;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 500;
+    background: rgba(255,255,255,.12);
+    border: 1.5px solid rgba(255,255,255,.25);
+    border-radius: 10px;
+    padding: 8px 18px;
+    letter-spacing: 2px;
+    transition: all .3s;
+    display: none;
+  }
+  #timer-display.warning { background: rgba(245,158,11,.2); border-color: var(--yellow-500); color: #fde68a; }
+  #timer-display.danger  { background: rgba(239,68,68,.25); border-color: var(--red-500);    color: #fca5a5; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--green-900);
+    color: rgba(255,255,255,.65);
+    text-align: center;
+    padding: 16px 24px;
+    font-size: 12px;
+    margin-top: auto;
+    letter-spacing: .3px;
+  }
+  .site-footer strong { color: var(--green-400); }
+
+  /* ── SCREENS ── */
+  .screen { display: none; flex: 1; }
+  .screen.active { display: flex; }
+
+  /* ── WELCOME SCREEN ── */
+  #screen-welcome {
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+  .welcome-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 560px;
+    width: 100%;
+    overflow: hidden;
+    animation: slideUp .5s ease;
+  }
+  @keyframes slideUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  .welcome-banner {
+    background: linear-gradient(135deg, var(--green-800), var(--green-600));
+    padding: 32px 36px;
+    text-align: center;
+    color: white;
+  }
+  .welcome-banner .emoji { font-size: 42px; margin-bottom: 12px; }
+  .welcome-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .welcome-banner p { font-size: 13px; opacity: .8; }
+  .welcome-body { padding: 32px 36px; }
+  .test-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .info-chip {
+    background: var(--green-50);
+    border: 1px solid var(--green-200, #a7f3d0);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .info-chip .label { font-size: 11px; color: var(--gray-500); text-transform: uppercase; letter-spacing: .5px; }
+  .info-chip .value { font-size: 17px; font-weight: 700; color: var(--green-800); margin-top: 2px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 7px;
+    letter-spacing: .2px;
+  }
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--gray-800);
+    transition: border-color .2s, box-shadow .2s;
+    background: white;
+    outline: none;
+    appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--green-500);
+    box-shadow: 0 0 0 3px rgba(16,185,129,.12);
+  }
+  .btn-primary {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--green-700), var(--green-500));
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: .3px;
+    transition: transform .15s, box-shadow .15s, opacity .15s;
+    box-shadow: 0 4px 14px rgba(5,150,105,.35);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(5,150,105,.45); }
+  .btn-primary:active { transform: translateY(0); }
+  .instructions {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+  .instructions strong { color: var(--gray-800); }
+  .instructions ul { padding-left: 18px; margin-top: 6px; }
+  .instructions ul li { margin-bottom: 3px; }
+
+  /* ── TEST SCREEN ── */
+  #screen-test {
+    flex-direction: column;
+    padding: 0;
+  }
+  .test-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 0;
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 24px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* Question Panel */
+  .question-panel {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  .qpanel-header {
+    background: linear-gradient(90deg, var(--green-800), var(--green-700));
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+  .qpanel-header .q-counter {
+    font-size: 13px;
+    opacity: .85;
+  }
+  .qpanel-header .q-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .q-status-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.3);
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .question-body {
+    padding: 28px 28px 8px;
+  }
+  .question-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--gray-800);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .options-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .option-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all .18s;
+    position: relative;
+    background: white;
+  }
+  .option-item:hover { border-color: var(--green-400); background: var(--green-50); }
+  .option-item.selected {
+    border-color: var(--green-600);
+    background: var(--green-50);
+    box-shadow: 0 0 0 3px rgba(16,185,129,.1);
+  }
+  .option-item.selected .opt-letter {
+    background: var(--green-600);
+    color: white;
+    border-color: var(--green-600);
+  }
+  .opt-letter {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--gray-300);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: all .18s;
+    color: var(--gray-600);
+    margin-top: 1px;
+  }
+  .opt-text {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .question-nav-btns {
+    padding: 16px 28px 24px;
+    display: flex;
+    gap: 12px;
+    border-top: 1px solid var(--gray-100);
+    align-items: center;
+    justify-content: space-between;
+  }
+  .btn-nav {
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--gray-300);
+    background: white;
+    color: var(--gray-700);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .btn-nav:hover:not(:disabled) { border-color: var(--green-500); color: var(--green-700); background: var(--green-50); }
+  .btn-nav:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-nav.btn-next {
+    background: linear-gradient(135deg, var(--green-700), var(--green-500));
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 2px 10px rgba(5,150,105,.25);
+  }
+  .btn-nav.btn-next:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(5,150,105,.35); }
+  .btn-nav.btn-submit-main {
+    background: linear-gradient(135deg, #064e3b, var(--green-700));
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 2px 10px rgba(6,78,59,.3);
+    padding: 10px 28px;
+  }
+  .btn-nav.btn-submit-main:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(6,78,59,.4); }
+  .btn-clear {
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--red-500);
+    background: white;
+    color: var(--red-500);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s;
+    margin-left: auto;
+  }
+  .btn-clear:hover { background: var(--red-100); }
+
+  /* Navigator Panel */
+  .navigator-panel {
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .nav-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  .nav-card-header {
+    background: linear-gradient(90deg, var(--green-800), var(--green-700));
+    color: white;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+  .nav-card-body { padding: 16px; }
+  .student-info-mini {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .student-info-mini span { color: var(--gray-500); }
+  .student-info-mini strong { color: var(--green-800); font-size: 14px; }
+  .progress-bar-wrap {
+    height: 7px;
+    background: var(--gray-200);
+    border-radius: 99px;
+    overflow: hidden;
+    margin: 12px 0 6px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green-500), var(--green-400));
+    border-radius: 99px;
+    transition: width .4s ease;
+  }
+  .progress-label { font-size: 11px; color: var(--gray-500); text-align: right; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: var(--gray-600);
+  }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .dot-answered  { background: var(--green-500); }
+  .dot-unanswered { background: var(--gray-200); border: 1px solid var(--gray-300); }
+  .dot-current   { background: var(--green-800); }
+  .q-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+  .q-btn {
+    aspect-ratio: 1;
+    border-radius: 7px;
+    border: 1.5px solid var(--gray-200);
+    background: white;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+    color: var(--gray-600);
+    font-family: 'DM Mono', monospace;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .q-btn:hover { border-color: var(--green-400); color: var(--green-700); }
+  .q-btn.answered { background: var(--green-500); border-color: var(--green-500); color: white; }
+  .q-btn.current  { background: var(--green-900); border-color: var(--green-900); color: white; }
+  .stats-mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .stat-chip {
+    text-align: center;
+    padding: 8px 4px;
+    border-radius: var(--radius-sm);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+  }
+  .stat-chip .n { font-size: 18px; font-weight: 700; line-height: 1; }
+  .stat-chip .l { font-size: 10px; color: var(--gray-500); margin-top: 2px; text-transform: uppercase; letter-spacing: .3px; }
+  .stat-chip.green .n { color: var(--green-600); }
+  .stat-chip.gray  .n { color: var(--gray-500); }
+  .stat-chip.blue  .n { color: #3b82f6; }
+  .btn-submit-side {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--green-900), var(--green-700));
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: .4px;
+    transition: all .2s;
+    box-shadow: 0 4px 12px rgba(6,78,59,.3);
+    margin-top: 14px;
+  }
+  .btn-submit-side:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(6,78,59,.4); }
+
+  /* ── SUBMISSION SCREEN ── */
+  #screen-submit {
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    flex-direction: column;
+    gap: 0;
+  }
+  .submit-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 560px;
+    width: 100%;
+    overflow: hidden;
+    animation: slideUp .6s ease;
+    margin-bottom: 32px;
+  }
+  .submit-banner {
+    background: linear-gradient(135deg, var(--green-900) 0%, var(--green-600) 100%);
+    padding: 36px 36px 28px;
+    text-align: center;
+    color: white;
+    position: relative;
+  }
+  .submit-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 30px;
+    background: white;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .check-circle {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.2);
+    border: 3px solid rgba(255,255,255,.5);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    animation: popIn .5s .3s both;
+  }
+  @keyframes popIn { from{transform:scale(0)} 70%{transform:scale(1.15)} to{transform:scale(1)} }
+  .submit-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  .submit-banner p { font-size: 13px; opacity: .8; }
+  .submit-body {
+    padding: 32px 36px 36px;
+  }
+  .submit-message {
+    background: var(--green-50);
+    border: 1.5px solid var(--green-200, #a7f3d0);
+    border-radius: var(--radius-sm);
+    padding: 20px 22px;
+    text-align: center;
+    line-height: 1.75;
+    color: var(--green-900);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .submit-message .arabic {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green-700);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Admin Hidden Section */
+  .admin-trigger-area {
+    max-width: 560px;
+    width: 100%;
+  }
+  .admin-trigger-hint {
+    text-align: center;
+    font-size: 11px;
+    color: var(--gray-300);
+    padding: 4px;
+    cursor: default;
+    user-select: none;
+  }
+  #admin-unlock-form {
+    display: none;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 24px;
+    margin-top: 8px;
+  }
+  #admin-unlock-form h3 {
+    font-size: 15px;
+    color: var(--gray-700);
+    margin-bottom: 14px;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .admin-pw-row {
+    display: flex; gap: 10px;
+  }
+  .admin-pw-row input {
+    flex: 1;
+    padding: 11px 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .admin-pw-row input:focus { border-color: var(--green-500); }
+  .admin-pw-row button {
+    padding: 11px 20px;
+    background: var(--green-700);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .admin-pw-row button:hover { background: var(--green-800); }
+  #admin-pw-error {
+    font-size: 12px;
+    color: var(--red-500);
+    margin-top: 8px;
+    display: none;
+  }
+
+  /* Admin Panel */
+  #admin-panel {
+    display: none;
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    margin-top: 24px;
+    animation: slideUp .4s ease;
+  }
+  .admin-panel-header {
+    background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
+    color: white;
+    padding: 20px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .admin-panel-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+  }
+  .admin-panel-header p { font-size: 12px; opacity: .65; margin-top: 2px; }
+  .admin-badge {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+  .admin-body { padding: 28px; }
+  .admin-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .admin-stat-card {
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    text-align: center;
+    border: 1px solid;
+  }
+  .admin-stat-card.c-green { background: var(--green-50); border-color: var(--green-200, #a7f3d0); }
+  .admin-stat-card.c-red   { background: var(--red-100);  border-color: #fca5a5; }
+  .admin-stat-card.c-yellow{ background: var(--yellow-100); border-color: #fde68a; }
+  .admin-stat-card.c-gray  { background: var(--gray-50); border-color: var(--gray-200); }
+  .admin-stat-card.c-blue  { background: #eff6ff; border-color: #bfdbfe; }
+  .admin-stat-card.c-purple{ background: #f5f3ff; border-color: #ddd6fe; }
+  .admin-stat-card .asc-label { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--gray-500); }
+  .admin-stat-card .asc-val   { font-size: 26px; font-weight: 700; line-height: 1.1; margin-top: 4px; color: var(--gray-800); }
+  .admin-stat-card.c-green .asc-val { color: var(--green-700); }
+  .admin-stat-card.c-red   .asc-val { color: var(--red-500); }
+  .admin-stat-card.c-yellow .asc-val { color: var(--yellow-500); }
+  .admin-stat-card.c-blue  .asc-val { color: #2563eb; }
+  .admin-stat-card.c-purple .asc-val { color: #7c3aed; }
+  .grade-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .grade-A  { background: var(--green-100); color: var(--green-800); }
+  .grade-B  { background: #dbeafe; color: #1d4ed8; }
+  .grade-C  { background: var(--yellow-100); color: #92400e; }
+  .grade-D  { background: var(--red-100); color: #991b1b; }
+  .grade-F  { background: var(--gray-100); color: var(--gray-700); }
+  .student-info-block {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  .sib-item .sib-l { font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: var(--gray-500); }
+  .sib-item .sib-v { font-size: 15px; font-weight: 600; color: var(--gray-800); margin-top: 2px; }
+  .breakdown-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .breakdown-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .breakdown-table th {
+    text-align: left;
+    padding: 10px 12px;
+    background: var(--gray-800);
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .3px;
+  }
+  .breakdown-table th:first-child { border-radius: 8px 0 0 0; }
+  .breakdown-table th:last-child  { border-radius: 0 8px 0 0; }
+  .breakdown-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-700);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  .breakdown-table tr:nth-child(even) td { background: var(--gray-50); }
+  .breakdown-table tr:hover td { background: var(--green-50); }
+  .result-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+  .tag-correct { background: var(--green-100); color: var(--green-800); }
+  .tag-wrong   { background: var(--red-100);   color: #991b1b; }
+  .tag-skipped { background: var(--gray-100);  color: var(--gray-600); }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 440px;
+    width: 100%;
+    overflow: hidden;
+    animation: popIn .3s ease;
+  }
+  .modal-header {
+    background: linear-gradient(135deg, var(--green-800), var(--green-600));
+    color: white;
+    padding: 20px 24px;
+  }
+  .modal-header h3 { font-size: 18px; font-weight: 700; }
+  .modal-header p  { font-size: 13px; opacity: .8; margin-top: 3px; }
+  .modal-body { padding: 24px; }
+  .modal-body p { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+  .modal-footer {
+    padding: 16px 24px;
+    display: flex; gap: 12px; justify-content: flex-end;
+    border-top: 1px solid var(--gray-100);
+  }
+  .btn-modal-cancel {
+    padding: 10px 22px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    background: white;
+    color: var(--gray-700);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s;
+  }
+  .btn-modal-cancel:hover { background: var(--gray-50); }
+  .btn-modal-confirm {
+    padding: 10px 22px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--green-800), var(--green-600));
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(5,150,105,.3);
+    transition: all .18s;
+  }
+  .btn-modal-confirm:hover { transform: translateY(-1px); }
+
+  /* Mobile responsive */
+  @media(max-width: 768px) {
+    .test-layout { grid-template-columns: 1fr; padding: 16px; }
+    .navigator-panel { position: static; order: -1; }
+    .q-grid { grid-template-columns: repeat(8, 1fr); }
+    .welcome-body { padding: 24px; }
+    .welcome-banner { padding: 24px; }
+    .test-info-grid { grid-template-columns: 1fr 1fr; }
+    .admin-summary-grid { grid-template-columns: repeat(3, 1fr); }
+    .admin-body { padding: 18px; }
+    .breakdown-table { font-size: 12px; }
+    .student-info-block { gap: 16px; }
+    .submit-body { padding: 24px; }
+    .header-inner { padding: 12px 16px; }
+    .brand-text h1 { font-size: 13px; }
+  }
+  @media(max-width: 480px) {
+    .q-grid { grid-template-columns: repeat(6, 1fr); }
+    .admin-summary-grid { grid-template-columns: repeat(2, 1fr); }
+    .question-body { padding: 20px 16px 8px; }
+    .question-nav-btns { padding: 14px 16px 20px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="brand-logo">📚</div>
+      <div class="brand-text">
+        <h1>PU Aspirants Community</h1>
+        <p>PU Entry Test Preparation Series</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div id="timer-display">75:00</div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── SCREEN: WELCOME ─── -->
+<main id="screen-welcome" class="screen active">
+  <div class="welcome-card">
+    <div class="welcome-banner">
+      <div class="emoji">🎯</div>
+      <h2>PU Entry Test — Mock Series</h2>
+      <p>Verbal Reasoning | Full-Length Practice Test</p>
+    </div>
+    <div class="welcome-body">
+      <div class="test-info-grid">
+        <div class="info-chip">
+          <div class="label">Questions</div>
+          <div class="value">100 MCQs</div>
+        </div>
+        <div class="info-chip">
+          <div class="label">Duration</div>
+          <div class="value">75 Min</div>
+        </div>
+        <div class="info-chip">
+          <div class="label">Total Marks</div>
+          <div class="value">100</div>
+        </div>
+        <div class="info-chip">
+          <div class="label">Negative Marking</div>
+          <div class="value">None</div>
+        </div>
+      </div>
+
+      <div class="instructions">
+        <strong>Instructions:</strong>
+        <ul>
+          <li>Each correct answer carries <strong>1 mark</strong>. No negative marking.</li>
+          <li>Do not refresh or close the browser during the test.</li>
+          <li>The test will auto-submit when the timer reaches zero.</li>
+          <li>You can navigate between questions using the number grid.</li>
+          <li>Click "Clear" to remove a selected answer from any question.</li>
+          <li>Once submitted, answers cannot be changed.</li>
+        </ul>
+      </div>
+
+      <div class="form-group">
+        <label for="student-name">Full Name *</label>
+        <input type="text" id="student-name" placeholder="Enter your full name" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="student-category">Category *</label>
+        <select id="student-category">
+          <option value="">— Select your category —</option>
+          <option value="Pre-Medical">Pre-Medical</option>
+          <option value="Pre-Engineering">Pre-Engineering</option>
+          <option value="ICS">ICS (Computer Science)</option>
+          <option value="Commerce">Commerce / Business</option>
+          <option value="Arts / Humanities">Arts / Humanities</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="startTest()">Start Test →</button>
+    </div>
+  </div>
+</main>
+
+<!-- ─── SCREEN: TEST ─── -->
+<main id="screen-test" class="screen">
+  <div class="test-layout">
+    <!-- Question Panel -->
+    <div class="question-panel">
+      <div class="qpanel-header">
+        <div>
+          <div class="q-counter">Verbal Reasoning</div>
+          <div class="q-num">Question <span id="q-num-label">1</span> of 100</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:12px;opacity:.75;">PU Entry Test Series</div>
+          <div id="q-answered-count" style="font-size:13px;font-weight:600;margin-top:2px;">0 Answered</div>
+        </div>
+      </div>
+      <div class="question-body">
+        <p class="question-text" id="question-text">Loading...</p>
+        <ul class="options-list" id="options-list"></ul>
+      </div>
+      <div class="question-nav-btns">
+        <button class="btn-nav" id="btn-prev" onclick="goTo(currentQ - 1)">← Prev</button>
+        <button class="btn-clear" onclick="clearAnswer()">✕ Clear</button>
+        <button class="btn-nav btn-next" id="btn-next" onclick="goTo(currentQ + 1)">Next →</button>
+        <button class="btn-nav btn-submit-main" onclick="openSubmitModal()">Submit Test</button>
+      </div>
+    </div>
+
+    <!-- Navigator Panel -->
+    <div class="navigator-panel">
+      <div class="nav-card">
+        <div class="nav-card-header">🧑‍🎓 Student Info</div>
+        <div class="nav-card-body">
+          <div class="student-info-mini"><span>Name:</span> <strong id="nav-name">—</strong></div>
+          <div class="student-info-mini"><span>Category:</span> <strong id="nav-cat">—</strong></div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+          </div>
+          <div class="progress-label" id="progress-label">0 / 100 answered</div>
+          <div class="stats-mini" style="margin-top:12px">
+            <div class="stat-chip green"><div class="n" id="nav-ans">0</div><div class="l">Done</div></div>
+            <div class="stat-chip gray"><div class="n" id="nav-skip">100</div><div class="l">Left</div></div>
+            <div class="stat-chip blue"><div class="n" id="nav-cur">1</div><div class="l">Curr</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-card">
+        <div class="nav-card-header">🗺️ Question Navigator</div>
+        <div class="nav-card-body">
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot dot-current"></div> Current</div>
+            <div class="legend-item"><div class="legend-dot dot-answered"></div> Answered</div>
+            <div class="legend-item"><div class="legend-dot dot-unanswered"></div> Pending</div>
+          </div>
+          <div class="q-grid" id="q-grid"></div>
+        </div>
+      </div>
+
+      <button class="btn-submit-side" onclick="openSubmitModal()">✅ Submit Test</button>
+    </div>
+  </div>
+</main>
+
+<!-- ─── SCREEN: SUBMISSION ─── -->
+<main id="screen-submit" class="screen">
+  <div class="submit-card">
+    <div class="submit-banner">
+      <div class="check-circle">✓</div>
+      <h2>Test Submitted!</h2>
+      <p>PU Aspirants Community — Entry Test Series</p>
+    </div>
+    <div class="submit-body">
+      <div class="submit-message">
+        <span class="arabic">جزاك الله خيراً</span>
+        Your test has been submitted successfully. JazakAllah for participating in <strong>PU Aspirants Community Entry Test Series</strong>. Your result will be announced by the admin. Stay tuned on our channel.
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden admin trigger — plain text, no visible hint -->
+  <div class="admin-trigger-area">
+    <div class="admin-trigger-hint" onclick="toggleAdminForm()" title="">.</div>
+    <div id="admin-unlock-form">
+      <h3>🔐 Admin Access</h3>
+      <div class="admin-pw-row">
+        <input type="password" id="admin-pw-input" placeholder="Enter admin password" onkeydown="if(event.key==='Enter') verifyAdmin()">
+        <button onclick="verifyAdmin()">Unlock</button>
+      </div>
+      <div id="admin-pw-error">Incorrect password. <span id="attempts-left"></span></div>
+    </div>
+  </div>
+
+  <!-- Admin Panel (fully hidden until unlocked) -->
+  <div id="admin-panel">
+    <div class="admin-panel-header">
+      <div>
+        <h2>Admin Results Panel</h2>
+        <p>PU Aspirants Community — Confidential Result View</p>
+      </div>
+      <div class="admin-badge">🔒 ADMIN</div>
+    </div>
+    <div class="admin-body">
+      <div class="student-info-block" id="admin-student-block">
+        <!-- populated by JS -->
+      </div>
+      <div class="admin-summary-grid" id="admin-summary-grid">
+        <!-- populated by JS -->
+      </div>
+      <div class="breakdown-title">📋 Question-by-Question Breakdown</div>
+      <div style="overflow-x:auto">
+        <table class="breakdown-table" id="breakdown-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Your Answer</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody id="breakdown-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  <strong>PU Aspirants Community</strong> — PU Entry Test Preparation Series &nbsp;|&nbsp; All rights reserved &nbsp;|&nbsp; Stay tuned for results on our channel
+</footer>
+
+<!-- Submit Confirm Modal -->
+<div class="modal-overlay" id="submit-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Submit Test?</h3>
+      <p>This action cannot be undone.</p>
+    </div>
+    <div class="modal-body">
+      <p id="modal-body-text">Are you sure you want to submit your test? Once submitted, you cannot change your answers.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" onclick="closeSubmitModal()">Cancel</button>
+      <button class="btn-modal-confirm" onclick="submitTest()">Yes, Submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+//  QUESTION BANK — 100 Verbal Reasoning MCQs
+//  PU / MDcat style, moderate-hard difficulty
+// ═══════════════════════════════════════════════
+const QUESTIONS = [
+  // ── Synonyms (1–20) ──────────────────────────
+  {q:"Choose the word closest in meaning to: AMELIORATE",opts:["Worsen","Improve","Maintain","Eliminate"],ans:1},
+  {q:"Choose the word closest in meaning to: LACONIC",opts:["Verbose","Brief","Emotional","Ambiguous"],ans:1},
+  {q:"Choose the word closest in meaning to: OSTENTATIOUS",opts:["Modest","Pretentious","Hidden","Sincere"],ans:1},
+  {q:"Choose the word closest in meaning to: RETICENT",opts:["Talkative","Reserved","Angry","Curious"],ans:1},
+  {q:"Choose the word closest in meaning to: EQUIVOCATE",opts:["Clarify","Evade","Accuse","Admire"],ans:1},
+  {q:"Choose the word closest in meaning to: PRODIGAL",opts:["Thrifty","Wasteful","Talented","Humble"],ans:1},
+  {q:"Choose the word closest in meaning to: PERNICIOUS",opts:["Beneficial","Harmless","Destructive","Neutral"],ans:2},
+  {q:"Choose the word closest in meaning to: MAGNANIMOUS",opts:["Petty","Generous","Arrogant","Timid"],ans:1},
+  {q:"Choose the word closest in meaning to: OBFUSCATE",opts:["Clarify","Confuse","Reveal","Simplify"],ans:1},
+  {q:"Choose the word closest in meaning to: CANDID",opts:["Deceptive","Frank","Hesitant","Polished"],ans:1},
+  {q:"Choose the word closest in meaning to: PERFIDIOUS",opts:["Loyal","Treacherous","Brave","Honest"],ans:1},
+  {q:"Choose the word closest in meaning to: DIFFIDENT",opts:["Confident","Shy","Aggressive","Clever"],ans:1},
+  {q:"Choose the word closest in meaning to: EPHEMERAL",opts:["Permanent","Transient","Ancient","Modern"],ans:1},
+  {q:"Choose the word closest in meaning to: ACRIMONY",opts:["Sweetness","Bitterness","Indifference","Joy"],ans:1},
+  {q:"Choose the word closest in meaning to: INSOLENT",opts:["Respectful","Rude","Nervous","Silent"],ans:1},
+  {q:"Choose the word closest in meaning to: VERBOSE",opts:["Brief","Wordy","Clear","Quiet"],ans:1},
+  {q:"Choose the word closest in meaning to: PARSIMONIOUS",opts:["Generous","Miserly","Extravagant","Casual"],ans:1},
+  {q:"Choose the word closest in meaning to: SAGACIOUS",opts:["Foolish","Wise","Reckless","Narrow-minded"],ans:1},
+  {q:"Choose the word closest in meaning to: IGNOMINIOUS",opts:["Glorious","Shameful","Worthy","Heroic"],ans:1},
+  {q:"Choose the word closest in meaning to: TENACIOUS",opts:["Weak","Persistent","Flexible","Apathetic"],ans:1},
+
+  // ── Antonyms (21–35) ─────────────────────────
+  {q:"Choose the word OPPOSITE in meaning to: BENEVOLENT",opts:["Kind","Malicious","Neutral","Indifferent"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: LOQUACIOUS",opts:["Talkative","Taciturn","Energetic","Bold"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: ZEALOUS",opts:["Enthusiastic","Apathetic","Committed","Loyal"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: FRUGAL",opts:["Thrifty","Extravagant","Cautious","Economical"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: VIVACIOUS",opts:["Lively","Dull","Cheerful","Active"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: AUDACIOUS",opts:["Brave","Timid","Reckless","Confident"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: ELOQUENT",opts:["Articulate","Inarticulate","Fluent","Persuasive"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: DILIGENT",opts:["Hardworking","Lazy","Careful","Focused"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: AMICABLE",opts:["Friendly","Hostile","Sociable","Pleasant"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: METICULOUS",opts:["Precise","Careless","Detailed","Thorough"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: SERENE",opts:["Calm","Agitated","Peaceful","Tranquil"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: PRUDENT",opts:["Careful","Reckless","Sensible","Wise"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: SYCOPHANT",opts:["Flatterer","Critic","Admirer","Follower"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: OPAQUE",opts:["Cloudy","Transparent","Dim","Hazy"],ans:1},
+  {q:"Choose the word OPPOSITE in meaning to: TURBULENT",opts:["Stormy","Calm","Violent","Chaotic"],ans:1},
+
+  // ── Analogies (36–50) ────────────────────────
+  {q:"DOCTOR : HOSPITAL :: Teacher : ?",opts:["Book","School","Lesson","Chalk"],ans:1},
+  {q:"KNIFE : SHARP :: Pillow : ?",opts:["Hard","Soft","Heavy","Flat"],ans:1},
+  {q:"FISH : SCHOOL :: Wolves : ?",opts:["Pack","Herd","Flock","Colony"],ans:0},
+  {q:"AUTHOR : NOVEL :: Poet : ?",opts:["Prose","Poem","Essay","Novel"],ans:1},
+  {q:"IGNORANCE : KNOWLEDGE :: Darkness : ?",opts:["Shadow","Light","Night","Dim"],ans:1},
+  {q:"CLOCK : TIME :: Thermometer : ?",opts:["Heat","Temperature","Weather","Cold"],ans:1},
+  {q:"CAPTAIN : SHIP :: Pilot : ?",opts:["Runway","Aircraft","Engine","Fuel"],ans:1},
+  {q:"FLOWER : PETAL :: Tree : ?",opts:["Root","Leaf","Branch","Bark"],ans:1},
+  {q:"SORROW : HAPPINESS :: War : ?",opts:["Conflict","Peace","Battle","Army"],ans:1},
+  {q:"MISER : MONEY :: Bookworm : ?",opts:["Worms","Books","Libraries","Reading"],ans:1},
+  {q:"LION : ROAR :: Snake : ?",opts:["Bark","Hiss","Growl","Chirp"],ans:1},
+  {q:"ELECTRICITY : WIRE :: Water : ?",opts:["Tank","Pipe","Rain","Tap"],ans:1},
+  {q:"BREAD : BAKER :: Pottery : ?",opts:["Clay","Potter","Kiln","Mould"],ans:1},
+  {q:"GALAXY : STARS :: Forest : ?",opts:["Soil","Trees","Birds","Leaves"],ans:1},
+  {q:"TELESCOPE : DISTANT :: Microscope : ?",opts:["Far","Tiny","Large","Bright"],ans:1},
+
+  // ── Sentence Completion (51–65) ──────────────
+  {q:"Despite her ________ appearance, she turned out to be extremely competent.",opts:["impressive","unassuming","flamboyant","confident"],ans:1},
+  {q:"The politician's speech was so ________ that even his opponents were moved.",opts:["tedious","eloquent","confusing","aggressive"],ans:1},
+  {q:"The scientist was ________ in her approach, checking every detail multiple times.",opts:["careless","meticulous","hasty","impulsive"],ans:1},
+  {q:"He was ________ by the complexity of the problem and gave up quickly.",opts:["inspired","daunted","amused","delighted"],ans:1},
+  {q:"The new policy was ________ because it benefited all parties involved.",opts:["controversial","equitable","unfair","divisive"],ans:1},
+  {q:"The company's ________ in cutting costs eventually led to its downfall.",opts:["generosity","parsimony","innovation","caution"],ans:1},
+  {q:"Her ________ attitude made it impossible to resolve the conflict.",opts:["flexible","conciliatory","intransigent","reasonable"],ans:2},
+  {q:"The old man was ________ of his youth, often talking about past achievements.",opts:["ignorant","reminiscent","critical","ashamed"],ans:1},
+  {q:"The ________ evidence presented in court left no doubt about the accused's guilt.",opts:["flimsy","compelling","circumstantial","irrelevant"],ans:1},
+  {q:"His ________ remarks offended nearly everyone at the gathering.",opts:["tactful","disparaging","cheerful","encouraging"],ans:1},
+  {q:"She spoke with such ________ that the audience was completely persuaded.",opts:["vagueness","conviction","hesitation","confusion"],ans:1},
+  {q:"The government's plan was ________ by the opposition without proper discussion.",opts:["endorsed","rejected","adopted","praised"],ans:1},
+  {q:"His ________ lifestyle led him to accumulate massive debts.",opts:["frugal","extravagant","modest","simple"],ans:1},
+  {q:"The athlete's ________ performance surpassed all previous records.",opts:["mediocre","stellar","average","poor"],ans:1},
+  {q:"She remained ________ in her decision despite intense pressure from her peers.",opts:["uncertain","resolute","hesitant","doubtful"],ans:1},
+
+  // ── Comprehension / Critical Reasoning (66–80) ─
+  {q:"If all Roses are Flowers, and all Flowers need water, then:",opts:["Roses do not need water","Roses need water","Flowers are Roses","Water is a flower"],ans:1},
+  {q:"All cats are animals. Some animals are wild. Which conclusion is definitely true?",opts:["All cats are wild","Some cats may be wild","No cats are wild","All wild things are cats"],ans:1},
+  {q:"No teachers are students. All students are hardworking. Which is definitely true?",opts:["All teachers are hardworking","No teachers are hardworking","Some teachers may be students","No students are teachers"],ans:3},
+  {q:"Some pens are pencils. All pencils are stationery. Which is definitely true?",opts:["All pens are stationery","Some pens are stationery","No pens are stationery","All stationery are pens"],ans:1},
+  {q:"If MANGO is coded as OCPIQ, then APPLE is coded as:",opts:["CRRNG","CQQNF","CRQNG","BQQNE"],ans:0},
+  {q:"A train travels 60 km in 1 hour. At the same speed, how far in 2.5 hours?",opts:["120 km","150 km","180 km","200 km"],ans:1},
+  {q:"Choose the correctly spelled word:",opts:["Accomodation","Accommodation","Acomodation","Accomodaion"],ans:1},
+  {q:"Choose the correctly spelled word:",opts:["Occurance","Occurrence","Occurence","Occurrance"],ans:1},
+  {q:"Choose the correctly spelled word:",opts:["Conscientious","Consientious","Conscientous","Consciencious"],ans:0},
+  {q:"What comes next in the sequence: 2, 6, 12, 20, 30, ?",opts:["36","40","42","44"],ans:2},
+  {q:"Which word does NOT belong in the group: Rose, Daisy, Tulip, Mango?",opts:["Rose","Daisy","Tulip","Mango"],ans:3},
+  {q:"Which word does NOT belong: Piano, Guitar, Violin, Trumpet, Microphone?",opts:["Piano","Guitar","Violin","Microphone"],ans:3},
+  {q:"Rearrange the letters CERDUI to find a common English word:",opts:["SUICIDE","REDUCE","JUICED","CURVED"],ans:1},
+  {q:"If you rearrange TNEAB, you get:",opts:["BATEN","BEATEN","BANTE","BNTAE"],ans:1},
+  {q:"Choose the pair most similar in relationship to: BOOK : LIBRARY",opts:["Tree : Seed","Painting : Museum","Artist : Canvas","Read : Write"],ans:1},
+
+  // ── Grammar & Usage (81–90) ──────────────────
+  {q:"Choose the grammatically correct sentence:",opts:["She don't know the answer.","She doesn't knows the answer.","She doesn't know the answer.","She not know the answer."],ans:2},
+  {q:"Identify the error: 'Neither of the students were present.'",opts:["Neither","of the students","were","present"],ans:2},
+  {q:"Choose the correct form: 'I wish I ________ a millionaire.'",opts:["am","was","were","be"],ans:2},
+  {q:"The passive voice of 'They built this bridge in 1990' is:",opts:["This bridge was built in 1990.","This bridge is built in 1990.","This bridge had been built in 1990.","This bridge has been built in 1990."],ans:0},
+  {q:"Choose the correct preposition: 'She is good ________ painting.'",opts:["in","at","for","on"],ans:1},
+  {q:"Choose the word that best fills: 'He was accused ________ theft.'",opts:["for","with","of","by"],ans:2},
+  {q:"Which sentence uses the subjunctive mood correctly?",opts:["If I was you, I would leave.","If I were you, I would leave.","If I am you, I will leave.","If I be you, I would leave."],ans:1},
+  {q:"Choose the correctly punctuated sentence:",opts:["Its a beautiful day isn't it","It's a beautiful day, isn't it?","Its a beautiful day, isnt it?","It's a beautiful day isnt it?"],ans:1},
+  {q:"'Whom' is correctly used in:",opts:["Whom is calling?","Whom did you see?","Whom did come?","Whom went there?"],ans:1},
+  {q:"Choose the sentence with correct subject-verb agreement:",opts:["The team are playing well.","The team is playing well.","The teams is playing well.","The team were playing good."],ans:1},
+
+  // ── Idioms & Phrases (91–100) ────────────────
+  {q:"'Beat around the bush' means:",opts:["To walk in a forest","To avoid the main topic","To work very hard","To fail repeatedly"],ans:1},
+  {q:"'A blessing in disguise' means:",opts:["A hidden curse","Something good that seemed bad initially","A religious event","An unexpected danger"],ans:1},
+  {q:"'Burn the midnight oil' means:",opts:["To work or study late at night","To waste energy","To cause a fire","To celebrate a victory"],ans:0},
+  {q:"'Hit the nail on the head' means:",opts:["To hurt someone","To describe exactly what is right","To work with tools","To be aggressive"],ans:1},
+  {q:"'Let the cat out of the bag' means:",opts:["To free an animal","To reveal a secret accidentally","To cause confusion","To lose something valuable"],ans:1},
+  {q:"'Once in a blue moon' means:",opts:["During the night","Very rarely","Every month","Under moonlight"],ans:1},
+  {q:"'Bite the bullet' means:",opts:["To eat hastily","To endure a painful situation stoically","To speak harshly","To take revenge"],ans:1},
+  {q:"'Cost an arm and a leg' means:",opts:["A surgical procedure","Something very expensive","Physical labour","An accident"],ans:1},
+  {q:"'The ball is in your court' means:",opts:["Playing sports","It is your decision or responsibility now","A legal situation","Being trapped"],ans:1},
+  {q:"'Speak of the devil' is said when:",opts:["Talking about evil","Someone arrives just as they were being mentioned","Starting an argument","Telling a lie"],ans:1},
+];
+
+// ═══════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════
+let studentName = "";
+let studentCategory = "";
+let answers = new Array(100).fill(null);   // null = unanswered, 0-3 = option index
+let currentQ = 0;
+let timerInterval = null;
+let timeLeft = 75 * 60;  // seconds
+let testSubmitted = false;
+let adminAttempts = 0;
+let adminLocked = false;
+let adminVisible = false;
+const MAX_ADMIN_ATTEMPTS = 3;
+
+// Admin password stored in obfuscated form (not plain text in source)
+// Password: PUAdmins@2025
+const _ap = [80,85,65,100,109,105,110,115,64,50,48,50,53].map(c=>String.fromCharCode(c)).join('');
+
+// ═══════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function answeredCount() {
+  return answers.filter(a => a !== null).length;
+}
+
+function updateNavGrid() {
+  const grid = document.getElementById('q-grid');
+  grid.innerHTML = '';
+  for (let i = 0; i < 100; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'q-btn';
+    btn.textContent = i + 1;
+    if (i === currentQ) btn.classList.add('current');
+    else if (answers[i] !== null) btn.classList.add('answered');
+    btn.addEventListener('click', () => goTo(i));
+    grid.appendChild(btn);
+  }
+}
+
+function updateStats() {
+  const ans = answeredCount();
+  const rem = 100 - ans;
+  document.getElementById('nav-ans').textContent = ans;
+  document.getElementById('nav-skip').textContent = rem;
+  document.getElementById('nav-cur').textContent = currentQ + 1;
+  document.getElementById('progress-fill').style.width = (ans) + '%';
+  document.getElementById('progress-label').textContent = ans + ' / 100 answered';
+  document.getElementById('q-answered-count').textContent = ans + ' Answered';
+}
+
+function renderQuestion(index) {
+  const q = QUESTIONS[index];
+  document.getElementById('q-num-label').textContent = index + 1;
+  document.getElementById('question-text').textContent = q.q;
+  const opts = document.getElementById('options-list');
+  opts.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.opts.forEach((opt, i) => {
+    const li = document.createElement('li');
+    li.className = 'option-item' + (answers[index] === i ? ' selected' : '');
+    li.innerHTML = `<span class="opt-letter">${letters[i]}</span><span class="opt-text">${opt}</span>`;
+    li.addEventListener('click', () => selectAnswer(i));
+    opts.appendChild(li);
+  });
+  document.getElementById('btn-prev').disabled = index === 0;
+  document.getElementById('btn-next').disabled = index === 99;
+  updateNavGrid();
+  updateStats();
+}
+
+function selectAnswer(optIndex) {
+  answers[currentQ] = optIndex;
+  renderQuestion(currentQ);
+}
+
+function clearAnswer() {
+  answers[currentQ] = null;
+  renderQuestion(currentQ);
+}
+
+function goTo(index) {
+  if (index < 0 || index > 99) return;
+  currentQ = index;
+  renderQuestion(index);
+  // scroll question panel to top on mobile
+  document.getElementById('screen-test').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════════════════
+//  TIMER
+// ═══════════════════════════════════════════════
+function startTimer() {
+  const display = document.getElementById('timer-display');
+  display.style.display = 'block';
+  timerInterval = setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      submitTest(true);
+      return;
+    }
+    timeLeft--;
+    const m = Math.floor(timeLeft / 60);
+    const s = timeLeft % 60;
+    display.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    display.className = '';
+    if (timeLeft <= 300) display.classList.add('danger');
+    else if (timeLeft <= 600) display.classList.add('warning');
+  }, 1000);
+}
+
+// ═══════════════════════════════════════════════
+//  START TEST
+// ═══════════════════════════════════════════════
+function startTest() {
+  const nameInput = document.getElementById('student-name').value.trim();
+  const catInput  = document.getElementById('student-category').value;
+  if (!nameInput) { alert('Please enter your full name to continue.'); return; }
+  if (!catInput)  { alert('Please select your category to continue.'); return; }
+  studentName = nameInput;
+  studentCategory = catInput;
+  document.getElementById('nav-name').textContent = studentName;
+  document.getElementById('nav-cat').textContent  = studentCategory;
+  showScreen('screen-test');
+  renderQuestion(0);
+  startTimer();
+}
+
+// ═══════════════════════════════════════════════
+//  SUBMIT MODAL
+// ═══════════════════════════════════════════════
+function openSubmitModal() {
+  const left = 100 - answeredCount();
+  const txt = left > 0
+    ? `You have <strong>${left} unanswered question(s)</strong>. Are you sure you want to submit now?`
+    : `You have answered all 100 questions. Ready to submit?`;
+  document.getElementById('modal-body-text').innerHTML = txt;
+  document.getElementById('submit-modal').classList.add('open');
+}
+function closeSubmitModal() {
+  document.getElementById('submit-modal').classList.remove('open');
+}
+
+// ═══════════════════════════════════════════════
+//  SUBMIT TEST
+// ═══════════════════════════════════════════════
+function submitTest(auto = false) {
+  if (testSubmitted) return;
+  testSubmitted = true;
+  clearInterval(timerInterval);
+  closeSubmitModal();
+  document.getElementById('timer-display').style.display = 'none';
+  showScreen('screen-submit');
+}
+
+// ═══════════════════════════════════════════════
+//  ADMIN ACCESS
+// ═══════════════════════════════════════════════
+let adminClickCount = 0;
+function toggleAdminForm() {
+  adminClickCount++;
+  if (adminClickCount >= 3) {
+    document.getElementById('admin-unlock-form').style.display = 'block';
+  }
+}
+
+function verifyAdmin() {
+  if (adminLocked) return;
+  const input = document.getElementById('admin-pw-input').value;
+  const errEl = document.getElementById('admin-pw-error');
+  const attEl = document.getElementById('attempts-left');
+
+  if (input === _ap) {
+    document.getElementById('admin-unlock-form').style.display = 'none';
+    buildAdminPanel();
+    document.getElementById('admin-panel').style.display = 'block';
+    document.getElementById('admin-panel').scrollIntoView({ behavior: 'smooth' });
+  } else {
+    adminAttempts++;
+    errEl.style.display = 'block';
+    const remaining = MAX_ADMIN_ATTEMPTS - adminAttempts;
+    if (remaining <= 0) {
+      adminLocked = true;
+      document.getElementById('admin-pw-input').disabled = true;
+      document.querySelector('#admin-unlock-form button').disabled = true;
+      errEl.textContent = 'Access locked for this session due to too many failed attempts.';
+      attEl.textContent = '';
+    } else {
+      errEl.textContent = `Incorrect password. ${remaining} attempt(s) remaining.`;
+      attEl.textContent = '';
+    }
+    document.getElementById('admin-pw-input').value = '';
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  BUILD ADMIN PANEL
+// ═══════════════════════════════════════════════
+function buildAdminPanel() {
+  let correct = 0, wrong = 0, skipped = 0;
+  answers.forEach((a, i) => {
+    if (a === null) skipped++;
+    else if (a === QUESTIONS[i].ans) correct++;
+    else wrong++;
+  });
+  const score = correct;
+  const pct   = score;
+  let grade, gradeClass;
+  if (pct >= 85)      { grade = 'A+'; gradeClass = 'grade-A'; }
+  else if (pct >= 75) { grade = 'A';  gradeClass = 'grade-A'; }
+  else if (pct >= 65) { grade = 'B';  gradeClass = 'grade-B'; }
+  else if (pct >= 55) { grade = 'C';  gradeClass = 'grade-C'; }
+  else if (pct >= 45) { grade = 'D';  gradeClass = 'grade-D'; }
+  else                { grade = 'F';  gradeClass = 'grade-F'; }
+
+  // Student info block
+  document.getElementById('admin-student-block').innerHTML = `
+    <div class="sib-item"><div class="sib-l">Student Name</div><div class="sib-v">${escHtml(studentName)}</div></div>
+    <div class="sib-item"><div class="sib-l">Category</div><div class="sib-v">${escHtml(studentCategory)}</div></div>
+    <div class="sib-item"><div class="sib-l">Grade</div><div class="sib-v"><span class="grade-badge ${gradeClass}">${grade}</span></div></div>
+  `;
+
+  // Summary grid
+  document.getElementById('admin-summary-grid').innerHTML = `
+    <div class="admin-stat-card c-blue">
+      <div class="asc-label">Total Score</div>
+      <div class="asc-val">${score} / 100</div>
+    </div>
+    <div class="admin-stat-card c-purple">
+      <div class="asc-label">Percentage</div>
+      <div class="asc-val">${pct}%</div>
+    </div>
+    <div class="admin-stat-card c-green">
+      <div class="asc-label">Correct</div>
+      <div class="asc-val">${correct}</div>
+    </div>
+    <div class="admin-stat-card c-red">
+      <div class="asc-label">Wrong</div>
+      <div class="asc-val">${wrong}</div>
+    </div>
+    <div class="admin-stat-card c-gray">
+      <div class="asc-label">Skipped</div>
+      <div class="asc-val">${skipped}</div>
+    </div>
+    <div class="admin-stat-card c-yellow">
+      <div class="asc-label">Grade</div>
+      <div class="asc-val">${grade}</div>
+    </div>
+  `;
+
+  // Breakdown table
+  const tbody = document.getElementById('breakdown-tbody');
+  tbody.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  QUESTIONS.forEach((q, i) => {
+    const a = answers[i];
+    let resultTag, resultClass;
+    if (a === null)             { resultTag = 'Skipped'; resultClass = 'tag-skipped'; }
+    else if (a === q.ans)       { resultTag = 'Correct'; resultClass = 'tag-correct'; }
+    else                        { resultTag = 'Wrong';   resultClass = 'tag-wrong'; }
+
+    const studentAns = a !== null ? `${letters[a]}. ${q.opts[a]}` : '—';
+    const correctAns = `${letters[q.ans]}. ${q.opts[q.ans]}`;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="font-weight:700;color:var(--gray-600);font-family:'DM Mono',monospace">${i+1}</td>
+      <td style="max-width:280px">${escHtml(q.q)}</td>
+      <td style="color:var(--green-700);font-weight:600">${escHtml(correctAns)}</td>
+      <td style="color:${a === null ? 'var(--gray-400)' : (a === q.ans ? 'var(--green-700)' : 'var(--red-500)')}">${escHtml(studentAns)}</td>
+      <td><span class="result-tag ${resultClass}">${resultTag}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// Close modal on overlay click
+document.getElementById('submit-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeSubmitModal();
+});
+</script>
+</body>
+</html>
